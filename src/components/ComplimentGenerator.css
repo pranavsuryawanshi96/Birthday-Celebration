@@ -1,0 +1,240 @@
+.compliment-generator {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 100px 20px 42px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.85), transparent 34%),
+    linear-gradient(135deg, #ffeef8 0%, #ffe5f3 50%, #ffd6ed 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.compliment-generator::before,
+.compliment-generator::after {
+  content: "💗";
+  position: absolute;
+  color: rgba(233, 30, 99, 0.32);
+  font-size: 2.2rem;
+  pointer-events: none;
+  animation: complimentFloat 5s ease-in-out infinite;
+}
+
+.compliment-generator::before {
+  top: 18%;
+  left: 9%;
+}
+
+.compliment-generator::after {
+  right: 10%;
+  bottom: 16%;
+  animation-delay: 1.2s;
+}
+
+@keyframes complimentFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(8deg);
+  }
+}
+
+.compliment-container {
+  width: min(100%, 720px);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.compliment-icon {
+  font-size: 3.2rem;
+  margin-bottom: 8px;
+  animation: complimentBounce 2.4s ease-in-out infinite;
+}
+
+@keyframes complimentBounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.04);
+  }
+}
+
+.compliment-container h1 {
+  margin: 0;
+  color: #e91e63;
+  font-size: 2.45rem;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.compliment-subtitle {
+  margin: 12px auto 22px;
+  max-width: 520px;
+  color: #555;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.compliment-card {
+  border: 2px solid rgba(233, 30, 99, 0.13);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 50px rgba(233, 30, 99, 0.22);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.compliment-result {
+  width: 100%;
+  min-height: 128px;
+  padding: 28px;
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(255, 238, 248, 0.96), rgba(255, 255, 255, 0.96)),
+    #fff;
+  color: #333;
+  font-size: 1.35rem;
+  line-height: 1.55;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(233, 30, 99, 0.08);
+  animation: complimentIn 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes complimentIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.compliment-btn,
+.compliment-gallery-btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 700;
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    background 250ms ease;
+}
+
+.compliment-btn {
+  background: linear-gradient(135deg, #e91e63, #ff6b9d);
+  color: white;
+  padding: 14px 32px;
+  font-size: 1.08rem;
+  box-shadow: 0 12px 30px rgba(233, 30, 99, 0.34);
+}
+
+.compliment-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 16px 38px rgba(233, 30, 99, 0.42);
+}
+
+.compliment-btn:focus-visible,
+.compliment-gallery-btn:focus-visible {
+  outline: 3px solid rgba(156, 39, 176, 0.35);
+  outline-offset: 3px;
+}
+
+.compliment-count {
+  margin: 0;
+  color: #9c27b0;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.compliment-footer {
+  margin: 18px 0 0;
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.compliment-gallery-btn {
+  margin-top: 18px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #e91e63;
+  border: 2px solid rgba(233, 30, 99, 0.55);
+  font-size: 0.98rem;
+  box-shadow: 0 8px 20px rgba(233, 30, 99, 0.14);
+}
+
+.compliment-gallery-btn:hover {
+  background: #e91e63;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(233, 30, 99, 0.28);
+}
+
+@media (max-width: 700px) {
+  .compliment-generator {
+    align-items: flex-start;
+    padding: 92px 14px 32px;
+  }
+
+  .compliment-container h1 {
+    font-size: 2rem;
+  }
+
+  .compliment-card {
+    padding: 22px 16px;
+    border-radius: 22px;
+  }
+
+  .compliment-result {
+    min-height: 140px;
+    padding: 22px 18px;
+    font-size: 1.12rem;
+  }
+
+  .compliment-btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .compliment-generator {
+    padding-top: 88px;
+  }
+
+  .compliment-icon {
+    font-size: 2.7rem;
+  }
+
+  .compliment-container h1 {
+    font-size: 1.65rem;
+  }
+
+  .compliment-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .compliment-result {
+    min-height: 156px;
+    font-size: 1.02rem;
+  }
+}
